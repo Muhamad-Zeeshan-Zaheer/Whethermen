@@ -89,8 +89,8 @@ days_per_month_by_file.each do |file, days_per_month|
     puts " Max Temp Sum: #{data[:max_temp_sum]}"
     puts " Min Temp Sum: #{data[:min_temp_sum]}"
 
-   puts "Average max sum is #{ data[:max_temp_sum] / data[:days] if data[:days] > 0} " 
-   puts "Average min sum is #{data[:min_temp_sum] / data[:days] if data[:days] > 0}"
+   puts "Average max sum is #{ data[:max_temp_sum] / data[:days]} " 
+   puts "Average min sum is #{data[:min_temp_sum] / data[:days]}"
   end
 end
 
@@ -107,7 +107,7 @@ File.open(output_file, "w") do |file|
   file.puts "Average Maximum Temperature per Month:"
   days_per_month_by_file.each do |file_name, days_per_month|
     days_per_month.each do |month, data|
-      avg_max_temp = (data[:max_temp_sum] / data[:days]).round(2) if data[:days] > 0
+      avg_max_temp = (data[:max_temp_sum] / data[:days]).round(2) 
       if avg_max_temp
         file.puts "  Month #{month}: #{avg_max_temp}°C" 
       end
